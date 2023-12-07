@@ -3,12 +3,14 @@ CC=g++
 OS := $(shell uname)
 ifeq ($(OS),Darwin)
 	OPENGLLIB= -framework OpenGL
+	GLFWLIB = -lglfw3
 else
 	OPENGLLIB= -lGL
+	GLFWLIB = -lglfw
 endif
 
 GLEWLIB= -lGLEW
-GLFWLIB = -lglfw3
+
 LIBS=$(OPENGLLIB) $(GLEWLIB) $(GLFWLIB)
 LDFLAGS=-L/usr/local/lib
 CPPFLAGS=-I/usr/local/include -I./
