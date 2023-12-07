@@ -1,7 +1,7 @@
 CC=g++
 
 OS := $(shell uname)
-ifeq $(OS) Darwin
+ifeq ($(OS),Darwin)
 	OPENGLLIB= -framework OpenGL
 else
 	OPENGLLIB= -lGL
