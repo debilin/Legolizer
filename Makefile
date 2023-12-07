@@ -1,6 +1,12 @@
 CC=g++
 
-OPENGLLIB= -framework OpenGL
+OS := $(shell uname)
+ifeq $(OS) Darwin
+	OPENGLLIB= -framework OpenGL
+else
+	OPENGLLIB= -lGL
+endif
+
 GLEWLIB= -lGLEW
 GLFWLIB = -lglfw3
 LIBS=$(OPENGLLIB) $(GLEWLIB) $(GLFWLIB)
